@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 # to be chosen by user
 data = st.file_uploader("Upload raw data")
@@ -20,15 +20,15 @@ if st.button("Interpoler") and data:
 
     y_new = np.interp(x_new, x, y)
 
-    plt.plot(x, y, label="raw data")
-    plt.plot(x_new, y_new, label="interpolated")
-    plt.legend()
-    plt.xticks(x_new)
-    plt.grid()
+    # plt.plot(x, y, label="raw data")
+    # plt.plot(x_new, y_new, label="interpolated")
+    # plt.legend()
+    # plt.xticks(x_new)
+    # plt.grid()
 
     st.success("Voici votre interpolation")
 
-    st.pyplot(plt)
+    # st.pyplot(plt)
 
     df_interp = pd.DataFrame()
     df_interp["x"] = x_new
