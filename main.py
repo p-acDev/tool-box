@@ -19,7 +19,8 @@ if chosen_app == "-":
 
         st.info("""
         Tool Box, une web app qui rassemble
-        plusieurs outils que j'utilise régulièrement""")
+        plusieurs outils comme l'interpolation, des fits de courbes,
+        des distributions ...""")
 
 elif chosen_app == "Interpolation":
 
