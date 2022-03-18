@@ -18,8 +18,7 @@ st.title("Tool box")
 
 ## interpolation app
 chosen_app = st.sidebar.selectbox(
-    """Selectionner l'app que vous voulez utiliser. Pour voir la documentation des applications: 
-    https://the-tool-box.readthedocs.io/en/latest/""",
+    "Selectionner l'app que vous voulez utiliser.",
     ("-", "Interpolation", "Other")
 )
 
