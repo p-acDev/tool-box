@@ -13,7 +13,7 @@ st.set_page_config(
      }
  )
 
-st.title("Tool box")
+st.title(":hammer_and_wrench:Tool box")
 
 ## interpolation app
 chosen_app = st.sidebar.selectbox(
