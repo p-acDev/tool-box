@@ -6,7 +6,7 @@ import numpy as np
 
 st.set_page_config(
      page_title="Tool Box",
-     page_icon=":tool:",
+    #  page_icon="",
      layout="wide",
      initial_sidebar_state="expanded",
      menu_items={
