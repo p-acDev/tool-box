@@ -10,7 +10,7 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state="expanded",
      menu_items={
-         'Documentation': 'https://the-tool-box.readthedocs.io/en/latest/'
+         'About': "https://the-tool-box.readthedocs.io/en/latest/"
      }
  )
 
