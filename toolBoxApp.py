@@ -7,7 +7,6 @@ from app__interpolation import app__interpolation
 st.set_page_config(
      page_title="Tool Box",
     #  page_icon="",
-     layout="wide",
      initial_sidebar_state="expanded",
      menu_items={
          'About': "Documentation de l'app: https://the-tool-box.readthedocs.io/en/latest/"
