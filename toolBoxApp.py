@@ -1,5 +1,4 @@
 from base64 import decode
-from matplotlib.font_manager import json_load
 import streamlit as st
 import pandas as pd
 import numpy as np
