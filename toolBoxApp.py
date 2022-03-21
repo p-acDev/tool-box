@@ -1,7 +1,10 @@
+from base64 import decode
+from matplotlib.font_manager import json_load
 import streamlit as st
 import pandas as pd
 import numpy as np
-from app__interpolation import app__interpolation
+import json
+from app__interpolation import app__interpolation, app__gui
 
 
 st.set_page_config(
@@ -16,7 +19,6 @@ st.set_page_config(
 
 st.title(":hammer_and_wrench:Tool box")
 
-## interpolation app
 chosen_app = st.sidebar.selectbox(
     "Selectionner l'app que vous voulez utiliser.",
     ("-", "Interpolation", "Other")
@@ -33,24 +35,13 @@ if chosen_app == "-":
 
 elif chosen_app == "Interpolation":
 
+    with open("./app__interpolation/app__info.json","r", encoding='utf8') as f: 
+        app__info = json.load(f)
+
     with st.container():
-        st.subheader("Interpolation")
+        st.subheader(app__info["subheader"])
         # to be chosen by user
-        st.info("Application pour interpoler un jeu de donnéess")
-        data = st.file_uploader("Upload raw data")
-
-        if st.button("Interpoler") and data:
-
-            df, df_interp = app__interpolation.do_interpolation(data)
-
-            with st.expander("Clicker pour voir vos données"):
-                st.dataframe(df)
-
-            st.success("Voici votre interpolation")
-
-            st.dataframe(df_interp)
-            st.download_button(
-                label="Download data as csv",
-                data=df_interp.to_csv(),
-                file_name="interpolated_data.csv")
+        st.info(app__info["info_desc"])
+        
+        app__gui.create_gui()
                 
