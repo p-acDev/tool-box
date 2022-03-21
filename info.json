@@ -1,0 +1,11 @@
+{
+    "page_title":"Tool Box",
+    "page_icon":":hammer_and_wrench:",
+    "initial_sidebar_state":"expanded",
+    "header": ":hammer_and_wrench:Tool box",
+    "apps": [
+         "-",
+         "Interpolation",
+         "Template"
+     ]
+}

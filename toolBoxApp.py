@@ -2,25 +2,30 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import json
-from app__interpolation import app__interpolation, app__gui
+import sys
+import os
+from apps.interpolation import gui as interp_gui
+from apps.template import gui as temp_gui
 
+with open("./info.json", "r", encoding="utf8") as f:
+    info = json.load(f)
 
-st.set_page_config(
-     page_title="Tool Box",
-     page_icon=":hammer_and_wrench:",
-     initial_sidebar_state="expanded",
-     menu_items={
-         'About': """Documentation de l'app
-         https://the-tool-box.readthedocs.io/en/latest/ Développée par pacourbet https://pierre-andre-courbet.gitbook.io/pac/informations/about"""
-     }
- )
+for f in os.listdir('.'):
+    if os.path.isdir(f) and f.startswith('app__'):
+        sys.path.append("./" + f)
 
-st.title(":hammer_and_wrench:Tool box")
+st.set_page_config(menu_items = {
+    "About": "Documentation de l'app https://the-tool-box.readthedocs.io/en/latest/ Développée par pacourbet https://pierre-andre-courbet.gitbook.io/pac/informations/about"
+     },
+     )
+
+st.title(info["header"])
 
 chosen_app = st.sidebar.selectbox(
     "Selectionner l'app que vous voulez utiliser.",
-    ("-", "Interpolation", "Other")
+    tuple(info["apps"])
 )
+
 
 if chosen_app == "-":
     ## Introduction
@@ -31,15 +36,23 @@ if chosen_app == "-":
         plusieurs outils comme l'interpolation, des fits de courbes,
         des distributions ...""")
 
+# TODO: use the importlib instead to import module by name
 elif chosen_app == "Interpolation":
 
-    with open("./app__interpolation/app__info.json","r", encoding='utf8') as f: 
+    with open(f"./apps/{chosen_app.lower()}/info.json","r", encoding='utf8') as f: 
         app__info = json.load(f)
 
     with st.container():
-        st.subheader(app__info["subheader"])
-        # to be chosen by user
-        st.info(app__info["info_desc"])
-        
-        app__gui.create_gui()
-                
+
+        app_gui = interp_gui.Gui(app__info)
+        app_gui.create()
+
+elif chosen_app == "Template":
+
+    with open(f"./apps/{chosen_app.lower()}/info.json","r", encoding='utf8') as f: 
+        app__info = json.load(f)
+
+    with st.container():
+
+        app_gui = temp_gui.Gui(app__info)
+        app_gui.create()
