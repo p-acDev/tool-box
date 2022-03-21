@@ -9,9 +9,10 @@ st.set_page_config(
      page_icon=":hammer_and_wrench:",
      initial_sidebar_state="expanded",
      menu_items={
-         'About': """Documentation de l'app: https://the-tool-box.readthedocs.io/en/latest/ 
-          
-          Développée par: pacourbet -> https://pierre-andre-courbet.gitbook.io/pac/informations/about"""
+         'About': """## Documentation de l'app
+         https://the-tool-box.readthedocs.io/en/latest/ 
+          ## Développée par:
+          pacourbet -> https://pierre-andre-courbet.gitbook.io/pac/informations/about"""
      }
  )
 
