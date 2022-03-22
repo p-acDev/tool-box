@@ -1,5 +1,5 @@
 import streamlit as st
-from . import main
+from .utils import temp_function
 
 
 class Gui:
@@ -11,6 +11,6 @@ class Gui:
 
     def create(self):
 
-        
+        temp_function()
 
         return None

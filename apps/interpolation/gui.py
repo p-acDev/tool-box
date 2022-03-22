@@ -1,5 +1,5 @@
 import streamlit as st
-from .main import do_interpolation
+from .utils import do_interpolation
 
 class Gui:
 
