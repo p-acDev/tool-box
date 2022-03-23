@@ -12,7 +12,7 @@ class Gui:
 
         data = st.file_uploader("Upload raw data")
 
-        if data:
+        if data is not None:
 
             separator = st.radio(
                 "Sélectionner le séparateur (';' par défaut)",
