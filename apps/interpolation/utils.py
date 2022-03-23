@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
 
-def do_interpolation(data):
+def do_interpolation(data, separator=";"):
 
-    df = pd.read_csv(data, sep=";")
+    df = pd.read_csv(data, sep=separator)
 
     x, y = df['x'], df['y']
 
