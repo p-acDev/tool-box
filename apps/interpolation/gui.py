@@ -1,5 +1,7 @@
+from turtle import color
 import streamlit as st
 from .utils import do_interpolation
+import plotly.graph_objects as go
 
 class Gui:
 
@@ -31,7 +33,33 @@ class Gui:
 
                 st.success("Voici votre interpolation")
 
-                st.dataframe(df_interp)
+                fig = go.Figure()
+
+                fig.add_trace(
+                    go.Scatter(
+                        x=df['x'],
+                        y=df['y'],
+                        mode="markers+lines",
+                        name="raw data",
+                        line=dict(color="#4298f5")
+                    )
+                )
+
+                fig.add_trace(
+                    go.Scatter(
+                        x=df_interp['x'],
+                        y=df_interp['y'],
+                        mode="markers+lines",
+                        name="interpolated data",
+                        line=dict(color="#f59342")
+                    )
+                )
+
+                st.plotly_chart(fig)
+
+                with st.expander("Clicker pour voir vos données interpolées"):
+                    st.dataframe(df_interp)
+
                 st.download_button(
                     label="Download data as csv",
                     data=df_interp.to_csv(),
