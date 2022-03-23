@@ -12,19 +12,29 @@ class Gui:
 
         data = st.file_uploader("Upload raw data")
 
-        if st.button("Interpoler") and data:
+        if data:
 
-            df, df_interp = do_interpolation(data)
+            separator = st.radio(
+                "Sélectionner le séparateur (';' par défaut)",
+                (';', ',', 'autre'))
+            
+            if separator == 'autre':
+                separator = st.text_input('Séparateur:')
 
-            with st.expander("Clicker pour voir vos données"):
-                st.dataframe(df)
 
-            st.success("Voici votre interpolation")
+            if st.button("Interpoler"):
 
-            st.dataframe(df_interp)
-            st.download_button(
-                label="Download data as csv",
-                data=df_interp.to_csv(),
-                file_name="interpolated_data.csv")
+                df, df_interp = do_interpolation(data, separator)
+
+                with st.expander("Clicker pour voir vos données"):
+                    st.dataframe(df)
+
+                st.success("Voici votre interpolation")
+
+                st.dataframe(df_interp)
+                st.download_button(
+                    label="Download data as csv",
+                    data=df_interp.to_csv(),
+                    file_name="interpolated_data.csv")
 
         return None
