@@ -66,7 +66,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://www.heflin.dev/" target="_blank">Heflin Stephen Raj S</a></p>
+<p>Developed with ❤ by <a style='display: block; text-align: center;' href="www.pacourbet.net/" target="_blank">p-a.c</a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
