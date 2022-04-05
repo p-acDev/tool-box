@@ -6,7 +6,6 @@ import importlib
 with open("./info.json", "r", encoding="utf8") as f:
     info = json.load(f)
 
-
 st.set_page_config(menu_items = {
     "About": "Documentation de l'app https://the-tool-box.readthedocs.io/en/latest/ Développée par pacourbet https://www.pacourbet.net/"
      },
@@ -18,7 +17,6 @@ chosen_app = st.sidebar.selectbox(
     "Selectionner l'app que vous voulez utiliser.",
     tuple(info["apps"])
 )
-
 
 if chosen_app == "-":
     ## Introduction
