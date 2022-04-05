@@ -8,7 +8,7 @@ with open("./info.json", "r", encoding="utf8") as f:
 
 
 st.set_page_config(menu_items = {
-    "About": "Documentation de l'app https://the-tool-box.readthedocs.io/en/latest/ Développée par pacourbet https://pierre-andre-courbet.gitbook.io/pac/informations/about"
+    "About": "Documentation de l'app https://the-tool-box.readthedocs.io/en/latest/ Développée par pacourbet https://www.pacourbet.net/"
      },
      )
 
