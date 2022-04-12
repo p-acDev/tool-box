@@ -29,6 +29,7 @@ def create_distibution(df, direction_step, density=False):
     while _dir < 360:
         wind_direction_ticks.append("[{}:{}-{}[".format(_dir, _dir - 0.5*direction_step, _dir + 0.5*direction_step))
         _dir += direction_step
+       
 
     histo2D = pd.DataFrame(data=None, index=wind_speed_ticks, columns=wind_direction_ticks)
     k = 0

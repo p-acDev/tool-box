@@ -23,7 +23,7 @@ class Gui:
                 separator = st.text_input('Séparateur:')
 
             direction_step = st.number_input("Taille d'incrément pour les directions",
-            value=30)
+            value=30.0)
 
             density = st.radio("Pour le téléchargement, voulez vous la distribution en densité",
             ("Non", "Oui"))

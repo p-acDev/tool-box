@@ -8,7 +8,8 @@ def do_interpolation(data, separator=";"):
     x, y = df['x'], df['y']
 
     # to be chosen by user
-    x_new = np.arange(0, 360, 30)
+    x_new = df['x_new'].dropna()
+
 
     y_new = np.interp(x_new, x, y)
 
