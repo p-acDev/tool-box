@@ -42,6 +42,10 @@ class Gui:
                     x=df[df.columns[1]],
                     y=df[df.columns[0]]
                 ))
+                fig.update_layout(
+                    title_text=f'Distribution {data.name}',
+                    xaxis_title=f'{df.columns[1]}',
+                    yaxis_title=f'{df.columns[0]}',)
                 st.plotly_chart(fig)
 
                 with st.expander('Voir votre histogramme 2D'):

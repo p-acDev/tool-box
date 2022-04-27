@@ -3,7 +3,26 @@ import numpy as np
 
 
 def create_df(data, sep):
-    return pd.read_csv(data, sep=sep)
+
+    df = pd.read_csv(data, sep=sep)
+
+    # ensure evrything is numeric in data
+    def is_numeric(string):    
+        try:
+            float(string)      
+            val = float(string)
+        except ValueError:
+            val = np.nan
+        return val
+    
+    numeric_df = pd.DataFrame(columns=df.columns.to_list())
+    
+    for i in range(len(df.columns)):
+        numeric_df[df.columns[i]] = df[df.columns[i]].apply(is_numeric)
+
+    df = numeric_df.dropna()
+
+    return df
 
 def filter_df_per_direction(df, direction, direction_step):
     """filter the df according to direction
